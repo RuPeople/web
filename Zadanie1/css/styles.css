@@ -1,0 +1,120 @@
+body {
+	display: flex;
+	justify-content: center;
+}
+
+.bamf-todolist {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	width: 375px;
+	flex-basis: 375px;
+}
+
+.bamf-todolist-firstblock{
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.zagolovok {
+	font-family:sans-serif;
+	font-size: 20px;
+}
+span {
+	font-family:sans-serif;
+	font-size: 15px
+}
+
+input[type="checkbox"]  {
+	display: none;
+}
+
+label {
+	display: block;
+	width: 14px;
+	height: 14px;
+	border-radius: 100%;
+	background-color: #cccccc;
+	margin-top: 3px;
+	margin-left: 3px;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+input:checked ~ label {
+	display: block;
+	width: 14px;
+	height: 14px;
+	border-radius: 100%;
+	background-color: #777777;
+	margin-top: 3px;
+	margin-left: 22px;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.bamf-mode {
+	display: block;
+	width: 40px;
+	height: 20px;
+	background: #f4f4f4;
+	border:1px solid;
+	border-color: #aaaaaa;
+	border-radius: 15px;
+	cursor: pointer;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+
+.bamf-todolist-secondblock{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.bamf-textbox {
+	width: 300px;
+	height: 40px;
+	background-color: #b4b4b4;
+	opacity: 25%;
+	box-shadow:0px 2px 0px 2px rgb(0 0 0 / 0.10);
+}
+
+.bamf-greenbutton {
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	background-color: rgb(0,215,101);
+	border:0px;
+	cursor: pointer;
+	color: white;
+	font-size: 25px;
+}
+
+.bamf-todolist-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.bamf-todolist-list>div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 5px;
+}
+.bamf-redbutton {
+	display: flex;
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	background-color:  #d83636;
+	border:0px;
+	cursor: pointer;
+	color: white;
+	justify-content: center;
+	margin-right: 15px;
+}
+
