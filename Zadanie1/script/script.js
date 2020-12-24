@@ -1,26 +1,52 @@
 console.log('connected!');
 
-const input = document.querySelector("input[type='text']");
-const gb = document.querySelector("button[class='bamf-greenbutton']")
+
+//todo
+let addMessage = document.querySelector('#bamf-textbox');
+let addButton=document.querySelector('.bamf-greenbutton');
+
+let todo = document.querySelector('.bamf-todolist-list');
+
+let todoList =[];
+
+addButton.addEventListener('click', function() {
+	
+	let newToDo= {
+		ToDo: addMessage.value,
+		checked: false,
+
+	};
+
+	todoList.push(newToDo);
+	displayMessages();
+
+});
 
 
-function createToDo() {
-	const li = document.createElement("li");
-	const textSpan = document.createElement("span");
-	textSpan.classList.add("todo-text");
-	const newToDo=input.value;
-	textSpan.append(newToDo);
-
-
-
-
-	input.addEventListener("keypress", (keyPressed) => {
-		const keyEnter=13;
-		if (keyPressed.which == keyEnter) {
-			createToDo();
-		}
+function displayMessages() {
+	let displayMessage = '';
+	todoList.forEach(function(item,i){
+		displayMessage += `
+		<li>
+			<input class="task" type='checkbox' id='item_${i}' ${item.cheked ? array.splice(i,1)  : 2 }>
+			<label for='item_${i}'>${item.ToDo}</label>
+			<button class="bamf-redbutton" id='item_${i}'>-</button>
+		</li>
+		`;
+		todo.innerHTML = displayMessage;
 	});
-	gb.addEventListener("click", onClickToDo)
 }
 
-console.log(input);
+
+//dark theme
+const checkbox = document.querySelector('#mode');
+const body = document.querySelector('body');
+
+checkbox.addEventListener('change', () => {
+
+	document.body.classList.toggle('dark');
+
+});
+
+const task = document.querySelector('.task');
+

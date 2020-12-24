@@ -1,6 +1,7 @@
 body {
 	display: flex;
 	justify-content: center;
+	transition: background 0.5s;
 }
 
 .bamf-todolist {
@@ -26,11 +27,11 @@ span {
 	font-size: 15px
 }
 
-input[type="checkbox"]  {
+#mode  {
 	display: none;
 }
 
-label {
+#mode-label {
 	display: block;
 	width: 14px;
 	height: 14px;
@@ -42,7 +43,7 @@ label {
 	transition: 0.5s;
 }
 
-input:checked ~ label {
+input:checked ~ #mode-label {
 	display: block;
 	width: 14px;
 	height: 14px;
@@ -52,6 +53,10 @@ input:checked ~ label {
 	margin-left: 22px;
 	cursor: pointer;
 	transition: 0.5s;
+}
+
+input:checked ~ body {
+	background-color: #444444
 }
 
 .bamf-mode {
@@ -70,15 +75,17 @@ input:checked ~ label {
 .bamf-todolist-secondblock{
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	margin-bottom: 10px;
 }
 
-.bamf-textbox {
+#bamf-textbox {
 	width: 300px;
 	height: 40px;
 	background-color: #b4b4b4;
 	opacity: 25%;
 	box-shadow:0px 2px 0px 2px rgb(0 0 0 / 0.10);
+	margin:4px 0 4px 0;
 }
 
 .bamf-greenbutton {
@@ -91,6 +98,21 @@ input:checked ~ label {
 	cursor: pointer;
 	color: white;
 	font-size: 25px;
+	transition: 0.5s;
+}
+
+.bamf-greenbutton:hover {
+	display: block;
+	width: 52px;
+	height: 52px;
+	border-radius: 100%;
+	background-color: rgb(0,215,101);
+	border:0px;
+	cursor: pointer;
+	color: white;
+	font-size: 25px;
+	transition: 0.5s;
+
 }
 
 .bamf-todolist-list {
@@ -99,12 +121,17 @@ input:checked ~ label {
 	justify-content: space-around;
 }
 
-.bamf-todolist-list>div {
+li {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 	margin-bottom: 5px;
 }
+.task {
+	display: none;
+}
+
 .bamf-redbutton {
 	display: flex;
 	width: 20px;
@@ -116,5 +143,57 @@ input:checked ~ label {
 	color: white;
 	justify-content: center;
 	margin-right: 15px;
+	transition: 0.5s;
 }
 
+.bamf-redbutton:hover {
+	display: flex;
+	width: 21px;
+	height: 21px;
+	border-radius: 100%;
+	background-color:  #d83636;
+	border:0px;
+	cursor: pointer;
+	color: white;
+	justify-content: center;
+	margin-right: 15px;
+	transition: 0.5s;
+}
+
+body.dark {
+	background-color: #444444;
+	color:white;
+	transition: 0.5s;
+}
+
+body.dark .bamf-greenbutton {
+	background-color: #019848;
+	transition: 0.5s;
+}
+
+li>label {
+	margin:1px 0 2px 0;
+}
+
+body.dark .bamf-greenbutton:hover {
+	background-color: #019848;
+	display: block;
+	width: 52px;
+	height: 52px;
+	border-radius: 100%;
+	background-color: #019848;
+	border:0px;
+	cursor: pointer;
+	color: white;
+	font-size: 25px;
+	transition: 0.5s;
+}
+
+body.dark .bamf-redbutton {
+	background-color: #b92d2d;
+	transition: 0.5s;
+}
+
+body.performed .task {
+	text-decoration: line-through #000 !important;
+}
